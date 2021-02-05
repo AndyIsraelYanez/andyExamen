@@ -13,9 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Setting::factory(10)->create();
+        //se agregaran datos 
+        Setting::factory(8)->create();
+
         User::factory(8)->create();
-        Role::factory(10)->create();
+
+        Role::factory(8)->create();
          
         
     }
