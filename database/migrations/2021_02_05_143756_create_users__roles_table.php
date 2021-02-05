@@ -22,19 +22,9 @@ class CreateUsersRolesTable extends Migration
 
             $table->unsignedBiginteger('user_id');
 
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-
-           
-            $table->foreign('role_id')
-            ->references('id')
-            ->on('roles')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->foreign('role_id') ->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

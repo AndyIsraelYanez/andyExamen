@@ -16,18 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
             $table->string('fullName');
+
             $table->string('email');
+
             $table->string('phone');
+
             $table->string('age');
+
             $table->date('dateOfBirth');
 
             $table->unsignedBiginteger('setting_id')->unique();
-            $table->foreign('setting_id')
-            ->references('id')
-            ->on('settings')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            
+            $table->foreign('setting_id')->references('id')->on('settings')->onUpdate('cascade')->onDelete('cascade');
             
             $table->timestamps();
         });
